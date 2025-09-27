@@ -28,8 +28,8 @@ KERNEL         = $(LINUX_SOURCE)/arch/$(ARCH)/boot/Image
 # everything is in assembly anyways and everything is statically linked. Hence
 # no `-mcpu`, no `-mtune`, no funny business.
 
-CC        = $(CROSS_COMPILE)gcc
-LD        = $(CROSS_COMPILE)gcc
+CC        = $(CROSS_COMPILE)gcc$(CC_SUFFIX)
+LD        = $(CROSS_COMPILE)gcc$(CC_SUFFIX)
 ISA      ?= rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd_zba_zbb
 INCLUDES  = -Iinclude/
 ASFLAGS   = -march=$(ISA) -mabi=lp64d $(INCLUDES)
